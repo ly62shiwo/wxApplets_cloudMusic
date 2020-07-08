@@ -1,3 +1,20 @@
-<view >
-    <view >111111111</view>
+<view class="leaderboard">
+    <view class="navigation">
+        <image class="coverImgUrl" src="{{navigation.coverImgUrl}}" />
+        <view class="navigationRight">
+            <view class="navigationName">{{navigation.name}}</view>
+            <view class="cloudMusic">
+                <image src="{{avatarUrl}}" />
+                <text>{{nickname}}</text>
+            </view>
+            <view class="description">{{navigation.description}}</view>
+
+            <button class="share" >
+                分享给微信好友
+            </button>
+        </view>
+    </view>
+    <view class="playMusic">
+
+    </view>
 </view>

@@ -5,16 +5,32 @@ const API = require("../../API/api");
 
 Page({
   data: {
-    topListDetail: {},
+    topListDetail: {}, // 详情歌曲
+    avatarUrl: "",
+    nickname: "",
+    navigation: {
+      description: "", // 更新时间
+      coverImgUrl: "", // 图片url
+      name: "", // 榜名
+      playCount: "", // 播放数
+    },
   },
 
   onLoad(options) {
+    let that = this;
     console.log(options);
-    
+    let id = options.id;
+    console.log(id, "eeeeeeee");
+    API.getPlayListDetail(id).then((res) => {
+      if (res.code === 200) {
+        console.log(res, "res");
+        let { avatarUrl, nickname } = res.playlist.creator;
+        that.setData({
+          navigation: res.playlist,
+          avatarUrl,
+          nickname,
+        });
+      }
+    });
   },
-
-  playListDetail:function(e) {
-    console.log(e,'eeeeeeee');
-    
-  }
 });
