@@ -1,0 +1,36 @@
+.homePage {
+  width: 95%;
+  margin: 0 auto;
+}
+.leaderboard {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30rpx;
+  height: 240rpx;
+}
+
+.leaderboard image {
+  float: left;
+  width: 230rpx;
+  height: 240rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.leaderboard-name {
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+.detail {
+  position: absolute;
+  top: 50%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  color: #ccc;
+  width: 100%;
+  font-size: 28rpx;
+}
+.songTitle {
+  margin: 20rpx 0;
+  width: 100%;
+}
