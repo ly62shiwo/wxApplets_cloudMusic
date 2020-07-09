@@ -21,12 +21,13 @@ Page({
     console.log(options);
     let id = options.id;
     console.log(id, "eeeeeeee");
-    API.getPlayListDetail(id).then((res) => {
+    API.getPlayListDetail('%20+%2019723756').then((res) => {
       if (res.code === 200) {
         console.log(res, "res");
         let { avatarUrl, nickname } = res.playlist.creator;
         that.setData({
           navigation: res.playlist,
+          topListDetail: res.playlist.tracks,
           avatarUrl,
           nickname,
         });

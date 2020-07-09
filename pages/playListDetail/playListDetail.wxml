@@ -7,14 +7,21 @@
                 <image src="{{avatarUrl}}" />
                 <text>{{nickname}}</text>
             </view>
-            <view class="description">{{navigation.description}}</view>
-
-            <button class="share" >
-                分享给微信好友
-            </button>
+            <view class="description">{{navigation.description}}
+            <mp-icon icon="arrow" size="{{10}}" color='rgb(238, 238, 238)'></mp-icon>
+            </view>
+            <button class="share">分享给微信好友</button>
         </view>
     </view>
     <view class="playMusic">
-
+        <view class="playAll">
+            <mp-icon icon="play2" size="{{25}}"></mp-icon>
+            播放全部
+        </view>
+        <view class="songList" wx:for="{{topListDetail}}" wx:key="id">
+            <view class="songName">{{item.name}}</view>
+            <view class="singerName" wx:for="{{item.ar}}" wx:for-item="ar" wx:key="ar.id">{{ar.name}} - {{item.name}}</view>
+            <mp-icon class="songListPalyIcon" icon="play2" size="{{30}}" color="#ccc"></mp-icon>
+        </view>
     </view>
 </view>
