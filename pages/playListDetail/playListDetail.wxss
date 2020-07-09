@@ -1,13 +1,11 @@
-page {
-  background-color: skyblue;
-}
 .leaderboard {
   width: 100%;
   margin: 0 auto;
 }
 .navigation {
   width: 90%;
-  margin: 50rpx 0 30rpx 30rpx;  
+  height: 500rpx;
+  margin: 0 0 30rpx 30rpx;  
 }
 .coverImgUrl {
   float: left;

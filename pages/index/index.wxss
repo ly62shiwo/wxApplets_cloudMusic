@@ -1,3 +1,23 @@
+.navBar {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.title {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  font-family:PingFang-SC-Medium;
+  font-size:36rpx;
+  letter-spacing:2px;
+}
+
+
 .homePage {
   width: 95%;
   margin: 0 auto;
@@ -26,7 +46,7 @@
   top: 50%;
   left: 85%;
   transform: translate(-50%, -50%);
-  color: #ccc;
+  color: #666666;
   width: 100%;
   font-size: 28rpx;
 }

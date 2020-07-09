@@ -1,4 +1,4 @@
-<view class="leaderboard">
+<view class="leaderboard" style='background-color: red'>
     <view class="navigation">
         <image class="coverImgUrl" src="{{navigation.coverImgUrl}}" />
         <view class="navigationRight">

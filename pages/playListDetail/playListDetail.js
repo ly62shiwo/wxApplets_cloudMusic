@@ -8,6 +8,7 @@ Page({
     topListDetail: {}, // 详情歌曲
     avatarUrl: "",
     nickname: "",
+    backgroundUrl:'',
     navigation: {
       description: "", // 更新时间
       coverImgUrl: "", // 图片url
@@ -24,14 +25,24 @@ Page({
     API.getPlayListDetail('%20+%2019723756').then((res) => {
       if (res.code === 200) {
         console.log(res, "res");
-        let { avatarUrl, nickname } = res.playlist.creator;
+        let { avatarUrl, nickname, backgroundUrl } = res.playlist.creator;
         that.setData({
           navigation: res.playlist,
           topListDetail: res.playlist.tracks,
           avatarUrl,
           nickname,
+          backgroundUrl
         });
       }
     });
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ccc',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn'
+      }
+    })
+    
   },
 });

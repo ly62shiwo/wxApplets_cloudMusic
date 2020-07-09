@@ -6,6 +6,8 @@ const API = require("../../API/api");
 Page({
   data: {
     topListDetail: {},
+    navBarHeight: 0,
+    statusBarHeight: 0
   },
 
   onLoad() {
@@ -13,6 +15,10 @@ Page({
       title: "加载中",
     });
     this.getTopLists();
+    this.setData({
+      navBarHeight: app.globalData.navBarHeight,
+      statusBarHeight: app.globalData.statusBarHeight
+    })
   },
 
   getTopLists: function () {
