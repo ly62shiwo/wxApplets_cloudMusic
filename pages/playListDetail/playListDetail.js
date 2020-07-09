@@ -15,6 +15,11 @@ Page({
       name: "", // 榜名
       playCount: "", // 播放数
     },
+    header:{
+      title: '',
+      isHome: true,
+      isBack: true
+    }
   },
 
   onLoad(options) {

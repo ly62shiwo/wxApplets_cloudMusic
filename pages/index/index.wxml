@@ -1,8 +1,6 @@
 <!-- index.wxml -->
+<navBar header='{{header}}'></navBar>
 <view class="homePage">
-  <view class="navBar" style="height:{{navBarHeight + statusBarHeight}}px ">
-    <view class="title" style="height:{{navBarHeight}}px;line-height:{{navBarHeight}}px">云音乐</view>
-  </view>
   <view class="leaderboard" wx:for="{{topListDetail}}" wx:key="index" bindtap='websitePlayListDetail' data-id="{{item.id}}">
     <image src="{{item.coverImgUrl}}" />
     <!-- <view class="leaderboard-name">{{item.name}}</view> -->

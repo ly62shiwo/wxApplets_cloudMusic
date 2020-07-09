@@ -7,7 +7,12 @@ Page({
   data: {
     topListDetail: {},
     navBarHeight: 0,
-    statusBarHeight: 0
+    statusBarHeight: 0,
+    header:{
+      title: '云音乐',
+      isHome: false,
+      isBack: false
+    }
   },
 
   onLoad() {
