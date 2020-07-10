@@ -1,11 +1,14 @@
+page {
+  background-color: rgb(241, 236, 236);
+}
 .leaderboard {
   width: 100%;
-  margin: 0 auto;
 }
 .navigation {
-  width: 90%;
+  width: 100%;
+  box-sizing:border-box;
   height: 500rpx;
-  margin: 0 0 30rpx 30rpx;  
+  padding: 30rpx 20rpx 0 20rpx;
 }
 .coverImgUrl {
   float: left;
@@ -14,11 +17,8 @@
   border-radius: 30rpx;
   margin-right: 30rpx;
 }
-.navigationRight {
-  width: 100%;
-}
 .navigationName {
-  color: #ffffff;
+  color: rgb(97, 96, 96);
   font-size: 40rpx;
 }
 .description {
@@ -27,7 +27,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  color: rgb(216, 213, 213);
+  color: rgb(97, 96, 96);
   font-size: 26rpx;
 }
 
@@ -45,17 +45,18 @@
   margin-right: 15rpx;
 }
 .cloudMusic text {
-  color: rgb(238, 238, 238);
+  color: rgb(97, 96, 96);
 }
 .share {
-    margin-top: 70rpx !important;
+  margin-top: 70rpx;
 }
 /* 歌曲列表 */
 .playMusic {
   width: 100%;
+  background-color: #ffffff !important;
   border-top-left-radius: 50rpx;
   border-top-right-radius: 50rpx;
-  background-color: #ffffff;
+  background: no-repeat;
 }
 .playAll {
   margin-left: 30rpx;
@@ -69,7 +70,6 @@
   margin: 40rpx;
 }
 .songName {
-
 }
 .singerName {
   font-size: 25rpx;

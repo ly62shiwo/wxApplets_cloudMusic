@@ -1,12 +1,12 @@
 <!-- index.wxml -->
-<navBar header='{{header}}'></navBar>
+<navBar  header='{{header}}'></navBar>
 <view class="homePage">
   <view class="leaderboard" wx:for="{{topListDetail}}" wx:key="index" bindtap='websitePlayListDetail' data-id="{{item.id}}">
     <image src="{{item.coverImgUrl}}" />
     <!-- <view class="leaderboard-name">{{item.name}}</view> -->
     <view class="detail">
       <view class="songTitle" wx:for="{{item.tracks}}" wx:for-item="tracks" wx:key="index">
-        {{}}{{tracks.first}} - {{ tracks.second}}
+        {{tracks.num}}. {{tracks.first}} - {{ tracks.second}}
       </view>
     </view>
   </view>

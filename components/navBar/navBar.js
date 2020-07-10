@@ -4,9 +4,10 @@ Component({
     header: {
       type: Object,
       value: {
-        title: '',
+        title: "",
         isIndex: false,
-        isSho: false
+        isSho: false,
+        backgroundUrl: "",
       },
     },
   },
@@ -15,16 +16,16 @@ Component({
     statusBarHeight: 0,
   },
   methods: {
-    // _goBack: function() {
-    //     wx.navigateBack({
-    //         delta: 1
-    //     });
-    // },
-    // _goHome: function() {
-    //     wx.switchTab({
-    //         url: "/pages/index/index"
-    //     });
-    //     }
+    _goBack: function () {
+      wx.navigateBack({
+        delta: 1,
+      });
+    },
+    _goHome: function () {
+      wx.navigateBack({
+        url: "/pages/index/index",
+      });
+    },
   },
 
   attached() {
