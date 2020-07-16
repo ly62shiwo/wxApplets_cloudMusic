@@ -21,7 +21,6 @@ Page({
     });
     this.getTopLists();
   },
-
   getTopLists: function () {
     // 榜单内容摘要
     API.getTopListDetail().then((res) => {
@@ -29,9 +28,9 @@ Page({
         let element = res.list.splice(0, 4);
         // 添加排名数字
         element.map((item, index) => {
-          item.tracks.map((item,index) => {
-            item.num = index + 1
-          })
+          item.tracks.map((item, index) => {
+            item.num = index + 1;
+          });
         });
         this.setData({
           topListDetail: element,
@@ -46,5 +45,10 @@ Page({
     wx.navigateTo({
       url: "/pages/playListDetail/playListDetail?id=" + id,
     });
+  },
+  goSearch: function () {
+    wx.navigateTo({
+      url: "/pages/search/search"
+    })
   },
 });

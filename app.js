@@ -33,7 +33,7 @@ App({
       },
     });
   },
-  setNavBarInfo() {
+  setNavBarInfo() { 
     let that = this;
     // 获取系统信息
     wx.getSystemInfo({
@@ -42,12 +42,9 @@ App({
 
         // 胶囊按钮位置信息
         const menuButtonInfo = wx.getMenuButtonBoundingClientRect();
-        that.globalData.navBarHeight =
-          (menuButtonInfo.top - res.statusBarHeight) * 2 +
-          menuButtonInfo.height;
+        that.globalData.navBarHeight = (menuButtonInfo.top - res.statusBarHeight) * 2 + menuButtonInfo.height;
         that.globalData.statusBarHeight = res.statusBarHeight;
         console.log( that.globalData.statusBarHeight,' that.globalData.statusBarHeight');
-        
       },
     });
   },

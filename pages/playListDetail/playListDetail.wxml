@@ -19,9 +19,9 @@
             播放全部
         </view>
         <view class="songList" wx:for="{{topListDetail}}" wx:key="id">
-            <view class="songName">{{item.name}}</view>
+            <view class="songName">{{item.num}}.{{item.name}}</view>
             <view class="singerName" wx:for="{{item.ar}}" wx:for-item="ar" wx:key="id">
-                {{item.num}}. {{ar.name}} - {{item.name}}
+                {{ar.name}} - {{item.name}}
             </view>
             <mp-icon class="songListPalyIcon" icon="play2" size="{{30}}" color="#ccc"></mp-icon>
         </view>

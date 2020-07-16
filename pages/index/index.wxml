@@ -1,6 +1,7 @@
 <!-- index.wxml -->
-<navBar  header='{{header}}'></navBar>
+<navBar header='{{header}}'></navBar>
 <view class="homePage">
+  <input class="btnSearch" placeholder="搜索歌曲" bindfocus="goSearch"></input>
   <view class="leaderboard" wx:for="{{topListDetail}}" wx:key="index" bindtap='websitePlayListDetail' data-id="{{item.id}}">
     <image src="{{item.coverImgUrl}}" />
     <!-- <view class="leaderboard-name">{{item.name}}</view> -->

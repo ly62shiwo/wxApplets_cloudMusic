@@ -48,7 +48,10 @@ page {
   color: rgb(97, 96, 96);
 }
 .share {
-  margin-top: 70rpx;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
 }
 /* 歌曲列表 */
 .playMusic {
@@ -68,8 +71,6 @@ page {
   position: relative;
   width: 100%;
   margin: 40rpx;
-}
-.songName {
 }
 .singerName {
   font-size: 25rpx;

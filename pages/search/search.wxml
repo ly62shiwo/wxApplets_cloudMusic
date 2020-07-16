@@ -1,0 +1,35 @@
+<navBar header='{{header}}'></navBar>
+<view class="all">
+    <view class="fixed">
+        <view class="sea">
+            <input bindinput="search" class="btnSearch" placeholder="搜索歌曲" bindfocus="goSearch"></input>
+            <mp-icon class="iconSea" type="field" icon="search" color="#cccccc" size="{{30}}"></mp-icon>
+        </view>
+    </view>
+    <!-- 热搜 -->
+    <view class="hotSearch" wx:if="{{showIndex === 1}}">
+        <h1 style="font-size: 35rpx; font-wight: bold">热搜榜</h1>
+        <view class="hotSearchSong" wx:for="{{hotSearchDetail}}">
+            <view class="song">
+                <view style="color: #eb4d44; font-size: 35rpx; font-wight: bold">{{item.num}}</view>
+                <view class="songContent">
+                    <view class="name-image">
+                        <view class="name" style="font-size: 35rpx">{{item.searchWord}}</view>
+                        <image src="{{item.iconUrl}}" />
+                    </view>
+                    <view style="color: #aeaeae; font-size: 25rpx">{{item.content}}</view>
+                </view>
+                <text style="color: #aeaeae;">{{item.score}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="searchSongList" wx:if="{{showIndex === 0 }}">
+        <view class="songList" wx:for="{{searchList}}" wx:key="id">
+            <view class="songName">{{item.name}}</view>
+            <view class="singerName" wx:for="{{item.artists}}" wx:for-item="artists" wx:key="id">
+                {{artists.name}} - {{item.album.name}}
+            </view>
+            <mp-icon class="songListPalyIcon" icon="play2" size="{{30}}" color="#ccc"></mp-icon>
+        </view>
+    </view>
+</view>

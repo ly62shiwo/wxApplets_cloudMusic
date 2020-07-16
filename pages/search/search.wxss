@@ -1,0 +1,80 @@
+.all {
+  width: 95%;
+  margin: 0 auto;
+}
+.fixed {
+  position: fixed;
+  z-index: 10;
+  width: 95%;
+  padding: 10rpx 0;
+  background-color: #ffffff;
+}
+.sea {
+  position: relative;
+}
+.btnSearch {
+  height: 80rpx;
+  padding-left: 80rpx;
+  border: 1rpx solid #cccccc;
+  border-radius: 40rpx;
+}
+.iconSea {
+  position: absolute;
+  top: 10rpx;
+  left: 20rpx;
+}
+
+.hotSearchSong {
+  width: 100%;
+  margin-top: 70rpx;
+}
+.song {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.name-image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10rpx;
+}
+.songContent {
+  width: 60%;
+}
+.songContent image {
+  width: 60rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+
+.songList {
+  position: relative;
+  width: 100%;
+  margin: 40rpx;
+}
+.songName {
+  width: 80%;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.singerName {
+  width: 80%;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 25rpx;
+  color: #cccccc;
+}
+.songListPalyIcon {
+  position: absolute;
+  top: 10rpx;
+  right: 70rpx;
+}

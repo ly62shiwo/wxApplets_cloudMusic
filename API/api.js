@@ -32,5 +32,13 @@ module.exports = {
   // 歌单详情
   getPlayListDetail: (data) => {
       return request(`/playlist/detail?id= + ${data}`)
+  },
+  // 搜索
+  getSearch: data => {
+    return request(`/search?keywords= + ${data}`)
+  },
+  // 热搜详情
+  searchHotDetail: data => {
+    return request(`/search/hot/detail`,data)
   }
 };
