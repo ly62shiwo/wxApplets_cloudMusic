@@ -11,9 +11,7 @@
     <view class="searchHistory">
         <view style="font-size: 35rpx; margin-bottom: 30rpx">历史记录</view>
         <view class="historySongAll">
-            <view class="historySongName">无问无问无问无问</view>
-            <view class="historySongName">无问无问无问无问</view>
-            <view class="historySongName">无问无问无问无问</view>
+            <view class="historySongName">1111</view>
         </view>
     </view>
     <!-- 热搜 -->

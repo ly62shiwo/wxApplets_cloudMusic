@@ -3,12 +3,10 @@ App({
   onLaunch: function () {
     let that = this;
     // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-    let searchHistory = wx.getStorageSync() || [];
-    wx.setStorageSync("searchHistory", searchHistory);
-
+    var logs = wx.getStorageSync('logs') || []
+    logs.unshift(Date.now())
+    wx.setStorageSync('logs', logs)
+  
     that.setNavBarInfo();
     // 登录
     wx.login({

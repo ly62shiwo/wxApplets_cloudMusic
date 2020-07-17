@@ -16,9 +16,8 @@ Page({
     searchList: "",
     showIndex: "",
     songName: "",
-    
+    searchHistoryList: []
   },
-
   searchSongName: function (e) {
     let that = this;
     console.log(e.detail.value);
@@ -63,12 +62,16 @@ Page({
     } else {
       API.getSearch(e).then((res) => {
         if (res.code === 200) {
+          let searchHistory = wx.getStorageSync('searchHistory') || []
+          searchHistory.unshift(e)
+          wx.setStorageSync('searchHistory', searchHistory)
+          console.log(res, that.data.songName, searchHistory);
+
           that.setData({
             searchList: res.result.songs,
             showIndex: 0,
             songName: e,
           });
-          console.log(res, that.data.songName);
         }
       });
     }
