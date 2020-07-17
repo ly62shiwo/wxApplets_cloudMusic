@@ -14,10 +14,12 @@ Page({
     },
     hotSearchDetail: "",
     searchList: "",
-    showIndex:''
+    showIndex: "",
+    songName: "",
+    
   },
 
-  search: function (e) {
+  searchSongName: function (e) {
     let that = this;
     console.log(e.detail.value);
     clearTimeout(timer);
@@ -26,6 +28,24 @@ Page({
     }, 500);
   },
 
+  clearSoneName: function () {
+    let that = this;
+    console.log(11112345);
+    that.setData({
+      songName: "",
+    });
+    API.searchHotDetail().then((res) => {
+      if (res.code === 200) {
+        res.data.map((item, index) => {
+          item.num = index + 1;
+        });
+        that.setData({
+          hotSearchDetail: res.data,
+          showIndex: 1,
+        });
+      }
+    });
+  },
   getSearchList: function (e) {
     let that = this;
     if (e == "") {
@@ -34,10 +54,9 @@ Page({
           res.data.map((item, index) => {
             item.num = index + 1;
           });
-          console.log(res);
           that.setData({
             hotSearchDetail: res.data,
-            showIndex: 1
+            showIndex: 1,
           });
         }
       });
@@ -46,10 +65,10 @@ Page({
         if (res.code === 200) {
           that.setData({
             searchList: res.result.songs,
-            showIndex: 0
+            showIndex: 0,
+            songName: e,
           });
-          console.log(that.data.searchList);
-
+          console.log(res, that.data.songName);
         }
       });
     }

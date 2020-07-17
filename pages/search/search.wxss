@@ -2,6 +2,7 @@
   width: 95%;
   margin: 0 auto;
 }
+/* 搜索 */
 .fixed {
   position: fixed;
   z-index: 10;
@@ -23,7 +24,34 @@
   top: 10rpx;
   left: 20rpx;
 }
+.iconClear {
+  position: absolute;
+  z-index: 11;
+  top: 10rpx;
+  right: 20rpx;
+}
+/* 搜索历史 */
+.searchHistory {
+  width: 100%;
+  padding-top: 130rpx;
+}
+.historySongAll {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+.historySongName {
+  margin: 10rpx 10rpx 10rpx 0;
+  padding: 20rpx;
+  background-color: #f7f7f7;
+  /* border: 1px solid red; */
+  border-radius: 40rpx;
+}
 
+/* 热搜 */
+.hotSearch {
+  padding-top: 130rpx;
+}
 .hotSearchSong {
   width: 100%;
   margin-top: 70rpx;
@@ -47,7 +75,10 @@
   height: 30rpx;
   margin-left: 20rpx;
 }
-
+/* 搜索歌曲列表 */
+.searchSongList {
+  padding-top: 70rpx;
+}
 .songList {
   position: relative;
   width: 100%;

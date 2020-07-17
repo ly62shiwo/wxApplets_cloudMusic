@@ -2,8 +2,18 @@
 <view class="all">
     <view class="fixed">
         <view class="sea">
-            <input bindinput="search" class="btnSearch" placeholder="搜索歌曲" bindfocus="goSearch"></input>
-            <mp-icon class="iconSea" type="field" icon="search" color="#cccccc" size="{{30}}"></mp-icon>
+            <input bindinput="searchSongName" class="btnSearch" placeholder="搜索歌曲" bindfocus="goSearch" value="{{songName}}"></input>
+            <mp-icon class="iconSea" type="outline" icon="search" color="#cccccc" size="{{30}}"></mp-icon>
+            <mp-icon wx:if="{{showIndex === 0}}" bindtap="clearSoneName" class="iconClear" type="outline" icon="close2" color="#cccccc" size="{{30}}"></mp-icon>
+        </view>
+    </view>
+    <!-- 搜索历史 -->
+    <view class="searchHistory">
+        <view style="font-size: 35rpx; margin-bottom: 30rpx">历史记录</view>
+        <view class="historySongAll">
+            <view class="historySongName">无问无问无问无问</view>
+            <view class="historySongName">无问无问无问无问</view>
+            <view class="historySongName">无问无问无问无问</view>
         </view>
     </view>
     <!-- 热搜 -->
@@ -23,6 +33,7 @@
             </view>
         </view>
     </view>
+    <!-- 搜索歌曲列表 -->
     <view class="searchSongList" wx:if="{{showIndex === 0 }}">
         <view class="songList" wx:for="{{searchList}}" wx:key="id">
             <view class="songName">{{item.name}}</view>

@@ -6,6 +6,9 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
+    let searchHistory = wx.getStorageSync() || [];
+    wx.setStorageSync("searchHistory", searchHistory);
+
     that.setNavBarInfo();
     // 登录
     wx.login({
@@ -33,7 +36,7 @@ App({
       },
     });
   },
-  setNavBarInfo() { 
+  setNavBarInfo() {
     let that = this;
     // 获取系统信息
     wx.getSystemInfo({
@@ -42,9 +45,14 @@ App({
 
         // 胶囊按钮位置信息
         const menuButtonInfo = wx.getMenuButtonBoundingClientRect();
-        that.globalData.navBarHeight = (menuButtonInfo.top - res.statusBarHeight) * 2 + menuButtonInfo.height;
+        that.globalData.navBarHeight =
+          (menuButtonInfo.top - res.statusBarHeight) * 2 +
+          menuButtonInfo.height;
         that.globalData.statusBarHeight = res.statusBarHeight;
-        console.log( that.globalData.statusBarHeight,' that.globalData.statusBarHeight');
+        console.log(
+          that.globalData.statusBarHeight,
+          " that.globalData.statusBarHeight"
+        );
       },
     });
   },
