@@ -1,11 +1,9 @@
 <view style="margin-bottom:{{navBarHeight + statusBarHeight}}px;">
-    <view class='navBar' style='height:{{navBarHeight + statusBarHeight}}px; background: #fff;'>
-        <view class='title' style='top:{{statusBarHeight}}px;height:{{navBarHeight}}px;line-height:{{navBarHeight}}px'>
+    <view class='navBar' style='height:{{navBarHeight + statusBarHeight}}px; background: #fff; background-color:{{header.backgroundUrl}}'>
+        <view class='title' style='top:{{statusBarHeight}}px;height:{{navBarHeight}}px;line-height:{{navBarHeight}}px;'>
+            <mp-icon wx:if="{{header.isBack}}" class="navIconback" icon="back" size="{{13}}" bindtap="_goBack"></mp-icon>
+            <mp-icon wx:if="{{header.isHome}}" class="navIconhome" icon="home" size="{{25}}" bindtap="_goHome"></mp-icon>
             {{header.title}}
-        </view>
-        <view class="navbarIcon" style="top:{{navBarHeight - statusBarHeight + 7}}px">
-            <mp-icon wx:if="{{header.isBack}}" class="iconBack" icon="back" size="{{13}}" bindtap="_goBack"></mp-icon>
-            <mp-icon wx:if="{{header.isHome}}" class="iconHome" icon="home" size="{{25}}" bindtap="_goHome"></mp-icon>
         </view>
     </view>
 </view>

@@ -16,15 +16,31 @@ Page({
     searchList: "",
     showIndex: "",
     songName: "",
-    searchHistoryList: []
+    searchHistoryList: [],
+    showSearchHistory: ''
   },
+
+  getSearchHistoryList() {
+    let that = this;
+    let list = wx.getStorageSync("searchHistory");
+    console.log(list);
+    that.setData({
+      searchHistoryList: list,
+      showSearchHistory: 0
+    });
+  },
+  onLoad() {
+    let that = this;
+    that.getSearchHistoryList();
+  },
+
   searchSongName: function (e) {
     let that = this;
     console.log(e.detail.value);
     clearTimeout(timer);
     timer = setTimeout(() => {
       that.getSearchList(e.detail.value);
-    }, 500);
+    }, 1000);
   },
 
   clearSoneName: function () {
@@ -38,6 +54,7 @@ Page({
         res.data.map((item, index) => {
           item.num = index + 1;
         });
+        that.getSearchHistoryList();
         that.setData({
           hotSearchDetail: res.data,
           showIndex: 1,
@@ -48,11 +65,13 @@ Page({
   getSearchList: function (e) {
     let that = this;
     if (e == "") {
+      // 热搜
       API.searchHotDetail().then((res) => {
         if (res.code === 200) {
           res.data.map((item, index) => {
             item.num = index + 1;
           });
+          that.getSearchHistoryList();
           that.setData({
             hotSearchDetail: res.data,
             showIndex: 1,
@@ -62,18 +81,49 @@ Page({
     } else {
       API.getSearch(e).then((res) => {
         if (res.code === 200) {
-          let searchHistory = wx.getStorageSync('searchHistory') || []
-          searchHistory.unshift(e)
-          wx.setStorageSync('searchHistory', searchHistory)
+          let searchHistory = wx.getStorageSync("searchHistory") || [];
+          searchHistory.unshift(e);
+          wx.setStorageSync("searchHistory", searchHistory);
           console.log(res, that.data.songName, searchHistory);
-
           that.setData({
             searchList: res.result.songs,
             showIndex: 0,
             songName: e,
+            showSearchHistory: 1
           });
         }
       });
     }
+  },
+  delHistory: function () {
+    let that = this;
+    wx.clearStorage("searchHistory");
+    that.setData({
+      searchHistoryList: [],
+      showSearchHistory: 1
+    });
+  },
+  searchHistorySong: function (e) {
+    let that = this;
+    console.log(e, "eee");
+    let name;
+    if (typeof e.currentTarget.dataset.item == "object") {
+      name = e.currentTarget.dataset.item.searchWord;
+      let searchHistory = wx.getStorageSync("searchHistory") || [];
+      searchHistory.unshift(name);
+      wx.setStorageSync("searchHistory", searchHistory);
+    } else {
+      name = e.currentTarget.dataset.item;
+    }
+    API.getSearch(name).then((res) => {
+      if (res.code === 200) {
+        that.setData({
+          searchList: res.result.songs,
+          showIndex: 0,
+          songName: name,
+          showSearchHistory: 1
+        });
+      }
+    });
   },
 });

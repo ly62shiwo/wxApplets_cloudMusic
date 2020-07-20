@@ -19,7 +19,7 @@ Page({
       title: "歌单",
       isHome: true,
       isBack: true,
-      backgroundUrl: "",
+      backgroundUrl: "rgb(241, 236, 236)",
     },
   },
 
@@ -28,16 +28,25 @@ Page({
     console.log(options);
     let id = options.id;
     console.log(id, "eeeeeeee");
-    API.getPlayListDetail(id).then((res) => {
+    API.getPlayListDetail("%20+%2019723756").then((res) => {
       if (res.code === 200) {
         console.log(res, "res");
         let { avatarUrl, nickname, backgroundUrl } = res.playlist.creator;
-        // 添加排名数字
+        // 添加排名数字, 歌手处理
         res.playlist.tracks.map((item, index) => {
           item.num = index + 1;
+          let name = [];
+          item.ar.map((items, indexs) => {
+            name.push(items.name);
+          });
+          if (item.ar.length > 1) {
+            let aa = name.join("/");
+            item.ar = aa;
+          } else {
+            item.ar = name;
+          }
         });
         console.log(backgroundUrl, "backgroundUrl");
-
         that.setData({
           navigation: res.playlist,
           topListDetail: res.playlist.tracks,

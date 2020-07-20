@@ -5,8 +5,8 @@ Component({
       type: Object,
       value: {
         title: "",
-        isIndex: false,
-        isSho: false,
+        isHome: false,
+        isBack: false,
         backgroundUrl: "",
       },
     },

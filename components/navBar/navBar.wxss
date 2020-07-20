@@ -2,7 +2,7 @@
   position: fixed;
   width: 100%;
   overflow: hidden;
-  box-sizing: border-box;  
+  box-sizing: border-box;
   top: 0;
   left: 0;
   z-index: 9999;
@@ -16,21 +16,13 @@
   font-size: 36rpx;
   letter-spacing: 2px;
 }
-.navbarIcon {
+.navIconback {
   position: fixed;
-  width: 70px;
-  /* background: rgba(0, 0, 0, 0.2); */
-  box-sizing: border-box;
-  border-radius: 27px;
-  line-height: 1;
-  left: 7pt;
-  z-index: 99999;
+  margin: 0 7%;
+  left: 0;
 }
-.iconBack {
-  float: left;
-  margin-left: 15%;
-}
-.iconHome {
-  float: right;
-  margin-right: 15%;
+.navIconhome {
+  position: fixed;
+  margin: 0 13%;
+  left: 0;
 }
