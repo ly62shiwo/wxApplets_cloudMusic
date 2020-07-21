@@ -22,7 +22,7 @@
             <view class="num">{{item.num}}</view>
             <view class="songName">
                 {{item.name}}
-                <view class="singerName"  wx:for-item="ar" wx:key="id">
+                <view class="singerName" wx:for-item="ar" wx:key="id">
                     {{item.ar}} - {{item.name}}
                 </view>
             </view>

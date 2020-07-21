@@ -57,6 +57,9 @@ Page({
       }
     });
   },
+  openDescription: function() {
+    
+  },
   //转发
   onShareAppMessage: function (options) {
     console.log(options);

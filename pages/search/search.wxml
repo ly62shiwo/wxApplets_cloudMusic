@@ -8,7 +8,7 @@
         </view>
     </view>
     <!-- 搜索历史 -->
-    <view class="searchHistory" wx:if="{{showSearchHistory === 0}}">
+    <view class="searchHistory" wx:if="{{searchHistoryList.length > 0 && searchHistoryIndex === 1}}">
         <view style="font-size: 35rpx; margin-bottom: 30rpx">
             历史记录
             <mp-icon bind:tap="delHistory" style="position: absolute; right: 10rpx" type="outline" icon="delete-on" size="{{20}}"></mp-icon>
@@ -38,8 +38,8 @@
     <view class="searchSongList" wx:if="{{showIndex === 0 }}">
         <view class="songList" wx:for="{{searchList}}" wx:key="id">
             <view class="songName">{{item.name}}</view>
-            <view class="singerName" wx:for="{{item.artists}}" wx:for-item="artists" wx:key="id">
-                {{artists.name}} - {{item.album.name}}
+            <view class="singerName" wx:for-item="artists" wx:key="id">
+                {{item.artists}} - {{item.album.name}}
             </view>
             <mp-icon class="songListPalyIcon" icon="play2" size="{{30}}" color="#ccc"></mp-icon>
         </view>

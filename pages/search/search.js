@@ -15,9 +15,10 @@ Page({
     hotSearchDetail: "",
     searchList: "",
     showIndex: "",
+    searchHistoryIndex: 1,
     songName: "",
     searchHistoryList: [],
-    showSearchHistory: ''
+
   },
 
   getSearchHistoryList() {
@@ -26,7 +27,6 @@ Page({
     console.log(list);
     that.setData({
       searchHistoryList: list,
-      showSearchHistory: 0
     });
   },
   onLoad() {
@@ -48,6 +48,7 @@ Page({
     console.log(11112345);
     that.setData({
       songName: "",
+      searchHistoryIndex: 1
     });
     API.searchHotDetail().then((res) => {
       if (res.code === 200) {
@@ -82,14 +83,31 @@ Page({
       API.getSearch(e).then((res) => {
         if (res.code === 200) {
           let searchHistory = wx.getStorageSync("searchHistory") || [];
+          searchHistory.map((item, index) => {
+            console.log(item, e ,"item");
+            e == item ? searchHistory.splice(index,1) : ''
+          });
           searchHistory.unshift(e);
           wx.setStorageSync("searchHistory", searchHistory);
           console.log(res, that.data.songName, searchHistory);
+          // 添加排名数字, 歌手处理
+          res.result.songs.map((item, index) => {
+            let name = [];
+            item.artists.map((items, indexs) => {
+              name.push(items.name);
+            });
+            if (item.artists.length > 1) {
+              let aa = name.join("/");
+              item.artists = aa;
+            } else {
+              item.artists = name;
+            }
+          });
           that.setData({
             searchList: res.result.songs,
             showIndex: 0,
             songName: e,
-            showSearchHistory: 1
+            searchHistoryIndex: 0
           });
         }
       });
@@ -100,7 +118,6 @@ Page({
     wx.clearStorage("searchHistory");
     that.setData({
       searchHistoryList: [],
-      showSearchHistory: 1
     });
   },
   searchHistorySong: function (e) {
@@ -110,20 +127,15 @@ Page({
     if (typeof e.currentTarget.dataset.item == "object") {
       name = e.currentTarget.dataset.item.searchWord;
       let searchHistory = wx.getStorageSync("searchHistory") || [];
+      searchHistory.map((item, index) => {
+        console.log(item, name ,"item");
+        name == item ? searchHistory.splice(index,1) : ''
+      });
       searchHistory.unshift(name);
       wx.setStorageSync("searchHistory", searchHistory);
     } else {
       name = e.currentTarget.dataset.item;
     }
-    API.getSearch(name).then((res) => {
-      if (res.code === 200) {
-        that.setData({
-          searchList: res.result.songs,
-          showIndex: 0,
-          songName: name,
-          showSearchHistory: 1
-        });
-      }
-    });
+    that.getSearchList(name);
   },
 });
